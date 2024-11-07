@@ -38,7 +38,9 @@ Install all Python requirements:
 pip install -r requirements.txt
 ```
 If you see this error:
-```error: externally-managed-environment````
+```
+error: externally-managed-environment
+````
 then try this:
 ```shell
 python -m pip install -r requirements.txt --break-system-packages
@@ -49,8 +51,11 @@ Use you favorite editor to make the change (here nano).
 ```shell
 nano hoymiles_data.py
 ```
-```dtu = DTU("<DTU_HOST_IP>")```
-Where <DTU_HOST_IP> is the IP address of the DTU.
+Line to edit:
+```
+dtu = DTU("<DTU_HOST_IP>")
+```
+Where `<DTU_HOST_IP>` is the IP address of the DTU.
 
 ## Start Flask server by running HoymilesWifi.sh or add it to pm2
 To start `HoymilesWifi.sh` manually:
@@ -58,7 +63,7 @@ To start `HoymilesWifi.sh` manually:
 ./HoymilesWifi.sh
 ```
 
-To add `update.sh` to pm2:
+To add `HoymilesWifi.sh` to pm2:
 ```shell
 pm2 start HoymilesWifi.sh
 pm2 save
@@ -69,10 +74,12 @@ pm2 save
 ```shell
 hoymiles-wifi --host <DTU_HOST_IP> identify-inverters
 ```
-Where <DTU_HOST_IP> is the IP address of the DTU.
+Where `<DTU_HOST_IP>` is the IP address of the DTU.
 
 When this message is printed, it means that the inverter is turned off (mostly after sunset):
-```No response or unable to retrieve response for identify-inverters```
+```
+No response or unable to retrieve response for identify-inverters
+```
 ### Check the HoymilesWifi status:
 ```shell
 pm2 status
