@@ -1,5 +1,5 @@
 # MMM-Hoymiles
-MagicMirror module for external web widgets
+MagicMirror module for Hoymiles Wifi inverter info
 
 - This module shows current data for Hoymiles Wifi inverter with the help of the hoymiles-wifi python lib
 - Project is based on https://github.com/ulrichwisser/MMM-HTMLSnippet
@@ -37,6 +37,20 @@ Install all Python requirements:
 ```shell
 pip install -r requirements.txt
 ```
+If you see this error:
+```error: externally-managed-environment````
+then try this:
+```shell
+python -m pip install -r requirements.txt --break-system-packages
+```
+
+## Update the hard-coded DTU IP address of the DTU
+Use you favorite editor to make the change (here nano).
+```shell
+nano hoymiles_data.py
+```
+```dtu = DTU("<DTU_HOST_IP>")```
+Where <DTU_HOST_IP> is the IP address of the DTU.
 
 ## Start Flask server by running HoymilesWifi.sh or add it to pm2
 To start `HoymilesWifi.sh` manually:
@@ -50,3 +64,21 @@ pm2 start HoymilesWifi.sh
 pm2 save
 ```
 
+## Various checks
+### Verify hoymiles-wifi command:
+```shell
+hoymiles-wifi --host <DTU_HOST_IP> identify-inverters
+```
+Where <DTU_HOST_IP> is the IP address of the DTU.
+
+When this message is printed, it means that the inverter is turned off (mostly after sunset):
+```No response or unable to retrieve response for identify-inverters```
+### Check the HoymilesWifi status:
+```shell
+pm2 status
+pm2 info HoymilesWifi
+```
+### Check the HoymilesWifi log:
+```shell
+pm2 logs HoymilesWifi --lines 100
+```
