@@ -29,7 +29,7 @@ git clone https://github.com/schris88/MMM-Hoymiles-Wifi
 ```
 
 ### Hoymiles Example
-![Hoymiles Example](mmm-hoymiles.jpg)
+<img src="mmm-hoymiles.jpg" alt="mmm-hoymiles" width="300"/>
 
 ## Python Requirements
 Install all Python requirements:
