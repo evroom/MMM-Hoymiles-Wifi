@@ -13,7 +13,6 @@ git clone https://github.com/schris88/MMM-Hoymiles-Wifi
 ```
 
 ### Config example
-
 ```javascript
 {
   module: "MMM-Hoymiles-Wifi",
@@ -32,7 +31,7 @@ git clone https://github.com/schris88/MMM-Hoymiles-Wifi
 ### Hoymiles Example
 ![Hoymiles Example](mmm-hoymiles.jpg)
 
-## Requirements
+## Python Requirements
 Install all Python requirements:
 ```shell
 pip install -r requirements.txt
@@ -46,17 +45,21 @@ then try this:
 python -m pip install -r requirements.txt --break-system-packages
 ```
 
-## Update the hard-coded DTU IP address of the DTU
+## Enter DTU IP address of DTU
 Use you favorite editor to make the change (here nano).
 ```shell
-nano hoymiles_data.py
+nano HoymilesWifi.sh
 ```
 Line to edit:
 ```
-dtu = DTU("<DTU_HOST_IP>")
+python hoymiles_data.py --dtu_ip_address <DTU_HOST_IP>
 ```
 Where `<DTU_HOST_IP>` is the IP address of the DTU.
 
+To turn on debugging:
+```
+python hoymiles_data.py --dtu_ip_address <DTU_HOST_IP> --debug
+```
 ## Start Flask server by running HoymilesWifi.sh or add it to pm2
 To start `HoymilesWifi.sh` manually:
 ```shell
