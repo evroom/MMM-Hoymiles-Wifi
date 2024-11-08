@@ -11,7 +11,7 @@ parser = argparse.ArgumentParser(
     prog = 'hoymiles_data.py',
     description = 'Get data from Hoymiles inverter'
     )
-parser.add_argument('--dtu_ip_address', default = '', type=ip_address, required=True, help = "where DTU-IP-ADDRESS is <aaa.bbb.ccc.ddd>")
+parser.add_argument('--dtu_ip_address', default = '', type=ip_address, required=True, help = "where DTU-IP-ADDRESS has the format aaa.bbb.ccc.ddd")
 parser.add_argument('--debug', action = "store_true", default=False, required=False, help = "turn on debugging")
 args = parser.parse_args()
 if args.dtu_ip_address:
