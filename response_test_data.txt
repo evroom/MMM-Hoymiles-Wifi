@@ -1,0 +1,32 @@
+device_serial_number: "414393410379"
+timestamp: 1731076073
+active_power: 1
+firmware_version: 1
+sgs_data {
+  serial_number: 22070012478329
+  firmware_version: 1
+  voltage: 2334
+  frequency: 4996
+  temperature: 64
+  warning_number: 21
+  link_status: 1
+  modulation_index_signal: 3211427
+}
+pv_data {
+  serial_number: 22070012478329
+  port_number: 1
+  voltage: 172
+  energy_total: 27029
+  error_code: 50921472
+}
+pv_data {
+  serial_number: 22070012478329
+  port_number: 2
+  voltage: 308
+  current: 2
+  power: 6
+  energy_total: 31742
+  energy_daily: 17
+  error_code: 50331648
+}
+dtu_daily_energy: 17

@@ -13,6 +13,8 @@ parser = argparse.ArgumentParser(
     )
 parser.add_argument('--dtu_ip_address', default = '', type=ip_address, required=True, help = "where DTU-IP-ADDRESS has the format aaa.bbb.ccc.ddd")
 parser.add_argument('--debug', action = "store_true", default=False, required=False, help = "turn on debugging")
+parser.add_argument('--test', action = "store_true", default=False, required=False, help = "use a test dataset")
+
 args = parser.parse_args()
 if args.dtu_ip_address:
     dtuIpAddress = args.dtu_ip_address
@@ -22,8 +24,11 @@ else:
 app = Flask(__name__)
 
 async def get_dtu_data():
-    dtu = DTU(dtuIpAddress)
-    response = await dtu.async_get_real_data_new()
+    if args.test:
+        response = open("response_test_data.txt", "r")
+    else:
+        dtu = DTU(dtuIpAddress)
+        response = await dtu.async_get_real_data_new()
 
     # Print the response to the console
     print(f"DTU Response: {response}")

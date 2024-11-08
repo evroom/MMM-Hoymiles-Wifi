@@ -92,3 +92,16 @@ pm2 info HoymilesWifi
 ```shell
 pm2 logs HoymilesWifi --lines 100
 ```
+### Make a test run, using a test dataset
+Use you favorite editor to make the change (here nano).
+```shell
+nano HoymilesWifi.sh
+```
+Line to edit (add --debug --test):
+```
+python hoymiles_data.py --dtu_ip_address <DTU_HOST_IP> --debug --test
+```
+Where `<DTU_HOST_IP>` is the IP address of the DTU.
+
+The test dataset is taken from `response_test_data.txt`.
+Do not forget to undo the change after testing.
