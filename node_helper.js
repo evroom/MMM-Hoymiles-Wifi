@@ -6,7 +6,6 @@ module.exports = NodeHelper.create({
         if (notification == "INIT") {
             this.expressApp.use(bodyParser.json());
             this.expressApp.use(bodyParser.urlencoded({ extended: true }));
-
             // frames with html defined will retrieve data from the mothership
             for (var i = 0; i < payload.frames.length; i++) {
                 if (payload.frames[i].html !== undefined) {
