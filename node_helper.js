@@ -1,9 +1,7 @@
+var NodeHelper = require("node_helper")
 const bodyParser = require("body-parser")
 
-var NodeHelper = require("node_helper")
-
 module.exports = NodeHelper.create({
-
     socketNotificationReceived: function(notification, payload) {
         if (notification == "INIT") {
             this.expressApp.use(bodyParser.json());
@@ -17,7 +15,6 @@ module.exports = NodeHelper.create({
 						res.status(200).send(payload.frames[index].html); });
                 }
             }
-
             // initialization done
             this.sendSocketNotification('INIT_DONE', { });
         }

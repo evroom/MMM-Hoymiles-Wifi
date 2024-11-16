@@ -6,7 +6,19 @@
 
 Module.register("MMM-Hoymiles-Wifi", {
 
+    // anything here in defaults will be added to the config data
+	// and replaced if the same thing is provided in config
+	defaults: {
+        dtuIpAddress: "",
+        debug: false,
+        test: false,
+        width: "288px",
+        height: "360px",
+        updateInterval: 60000 // in milli seconds
+	},
+
     start: function() {
+        Log.log(this.name + " is starting!");
         // send config to node helper
         this.sendSocketNotification("INIT", this.config)
     },
@@ -32,13 +44,12 @@ Module.register("MMM-Hoymiles-Wifi", {
 
         if (!this.loaded) {
             wrapper.innerHTML = "Loading connections ...";
-            wrapper.className = "dimmed light small";
+            wrapper.className = "Hoymiles-Wifi";
             return wrapper;
         }
 
         // add iframes
         for (var i = 0; i < this.config.frames.length; i++) {
-
             // initialize iframe
             var iframe = document.createElement("iframe")
             iframe.id = "HOYMILES-" + this.config.ident + "-" + i;
